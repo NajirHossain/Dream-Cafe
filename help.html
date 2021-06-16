@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>slanted menu</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <style>
+        body {
+            background-image: url("img/bg.jpg");
+            background-size: cover;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: bold;
+            height: 100vh;
+            width: 100vw;
+            background-position: top;
+            background-repeat: no-repeat;
+            position: fixed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navigation-wrapper">
+        <div class="navigation-button">
+            <i class="fa fa-bars"></i>
+        </div>
+        <div class="navigation-menu">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="menu.html">MENU</a></li>
+                <li><a href="booking.html">BOOKING</a></li>
+                <li><a href="https://www.google.com/maps/place/Café+Coffee+Day/@22.4983522,88.3501738,19z/data=!4m13!1m7!3m6!1s0x39f882db4908f667:0x43e330e68f6c2cbc!2sKolkata,+West+Bengal!3b1!8m2!3d22.572646!4d88.363895!3m4!1s0x3a0270aab06dd92b:0xbe10e59c5b085140!8m2!3d22.4983812!4d88.3506913"
+                        target="_blank">LOCATION</a></li>
+                <li><a href="help.html">HELP</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="helpbox">
+        <form class="form">
+            <div class="row">
+                <div class="col">
+                    <form action="help_action.php" method="post">
+                        <input type="text" class="form-control" id="name" placeholder="Name" required>
+                        <input type="email" class="form-control" id="email" placeholder="Email" required>
+                        <input type="tel" class="form-control" id="subject" placeholder="Phone" required>
+                </div>
+                <div class="msg">
+                    <textarea class="form-control" id="message" rows="25" cols="10" placeholder="Message Text...." required></textarea>
+                    <button name="submit" type="submit" class="btn btn-default submit-btn form_submit">SEND</button>
+                </div>
+            </div>
+            </form>
+    </div>
+
+
+
+    </div>
+    <script>
+        var navButton = document.querySelector('.navigation-button');
+        var navMenu = document.querySelector('.navigation-menu');
+        var win = window;
+
+        function openMenu(event) {
+
+            navButton.classList.toggle('active');
+            navMenu.classList.toggle('active');
+
+            event.preventDefault();
+            event.stopImmediatePropagation();
+        }
+
+        function closeMenu(event) {
+            if (navButton.classList.contains('active')) {
+                navButton.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        }
+        navButton.addEventListener('click', openMenu, false);
+
+        win.addEventListener('click', closeMenu, false);
+    </script>
+</body>
+
+</html>
